@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load app %}
+
+{% block title %}
+Python
+{% endblock %}
+
+<!--記事カード-->
+{% block content %}
+<div>
+    {% for py in post_list %}
+    <div class="card m-6" style="width: 50rem; margin-top: 2rem; margin-left: 20rem;">
+        <div class="card-body">
+            <h3 class="card-title"><a style="text-decoration:none; color: black;" href="{% url 'bblog:detail' py.id %}">{{ py.title }}</a></h3>
+            <p class="card-text"><h5>{{ py.card_text }}</h5></p>
+            <h6 class="card-subtitle mb-2 text-body-secondary">更新日時：{{ py.updated_date }}</h6>
+            <p>{{ py.bigCategory }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
