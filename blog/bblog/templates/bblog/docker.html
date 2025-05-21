@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load app %}
+
+{% block title %}
+Docker
+{% endblock %}
+
+<!--記事カード-->
+{% block content %}
+<div>
+    {% for do in post_list %}
+    <div class="card m-6" style="width: 50rem; margin-top: 2rem; margin-left: 20rem;">
+        <div class="card-body">
+            <h3 class="card-title"><a style="text-decoration:none; color: black;" href="{% url 'bblog:detail' do.id %}">{{ do.title }}</a></h3>
+            <p class="card-text"><h5>{{ do.card_text }}</h5></p>
+            <h6 class="card-subtitle mb-2 text-body-secondary">更新日時：{{ do.updated_date }}</h6>
+            <p>{{ do.bigCategory }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

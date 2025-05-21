@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+{% load app %}
+<html lang="ja">
+<head>
+
+    <meta charset="UTF-8">
+    <title>{% block title %}プログラミング備忘録{% endblock %}</title>
+    <meta name="description" content="制作物や学んだことをアウトプットしていくブログ">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+
+<header >
+    <div class="bg-img">
+        <img src="{% static "images\W0RUS6FWBJ.jpg" %}" class="" width="100%" height="250" alt="表示">
+        <p><a href="{% url 'bblog:list' %}" style="text-decoration:none; color: white;">プログラミング備忘録</a></p>
+        <style>
+            .bg-img
+            {
+                position: relative;
+            }
+            .bg-img p
+            {
+                position: absolute;
+                color: aliceblue;
+                font-size: 3.5rem;
+                top: 35%;
+                left: 3%;
+                padding: 0.3rem 0.5rem;
+                margin: 0;
+            }
+        </style>
+    </div>
+
+</header>
+<div class="container_main wrapper">
+    <div class="row">
+    <main class="col-md-8 col-12" style="padding-top: 3rem;">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <aside class="col-md-2 col-12" style="padding-top: 5rem; ">
+        <ul class="list-group">
+            <li class="list-group-item" style="background-color: #2e2d36;"><h3 class="sub_title" style="color: azure;"><strong>メインカテゴリー</strong></h3></li>
+            <a href="{% url 'bblog:BigCategory_python' %}" class="list-group-item list-group-item-action"><h4>Python</h4></a>
+            <a href="{% url 'bblog:BigCategory_docker' %}" class="list-group-item list-group-item-action"><h4>Docker</h4></a>
+        </ul>
+        
+        
+        
+    </aside>
+
+    </div>
+
+</div>
+
+<div class="paginator ">
+    {% include 'bblog/Pagination.html' %}
+</div>
+
+<footer>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>

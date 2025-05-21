@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load app %}
+{% load static %}
+
+{% block content %}
+
+<article class="post-article" style="padding-top: 3rem; padding-left: 10rem; padding-right: 10rem;">
+    <header class="post-info">
+        <h2 class="post-title">{{  article.title  }}</h2>
+        <p class="post-data">{{ article.updated_date }}</p>
+    </header>
+
+    <hr>
+
+    <div class="markdown">
+        <p>{{   article.text | markdown_to_html | safe }}</p>
+    </div>
+</article>
+
+{% endblock %}
